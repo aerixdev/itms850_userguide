@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" itms850">
+<title>테스트 툴 - MQTT 데이터 해석 | 에어릭스 On-line 기술지원</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="techsupportold" href="http://localhost:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> 에어릭스 On-line 기술지원</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/aerixdev/itms850_userguide" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Link<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://aerix.tistory.com/" target="_blank" rel="noopener">에어릭스 Helpdesk 블로그</a></li>
+                        
+                        
+                        
+                        <li><a href="http://aerixdev.github.io/" target="_blank" rel="noopener">에어릭스 환경시스템사업부 기술블로그</a></li>
+                        
+                        
+                        
+                        <li><a href="http://aerix.co.kr" target="_blank" rel="noopener">에어릭스 회사 홈페이지</a></li>
+                        
+                        
+                        
+                        <li><a href="https://aerixfnc.co.kr/" target="_blank" rel="noopener">에어릭스 자회사 - 에어릭스 F&C 회사 홈페이지</a></li>
+                        
+                        
+                        
+                        <li><a href="http://cleanentech.com/" target="_blank" rel="noopener">에어릭스 자회사 - 클린앤텍 회사 홈페이지</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">IoT디바이스<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li class="dropdownActive"><a href="itms850_dataparsing.html">스마트콤보(ITMS-850)</a></li>
+                        
+                        
+                        
+                        <li><a href="p1_landing_page.html">BLE스캐너(Arx.BS100)</a></li>
+                        
+                        
+                        
+                        <li><a href="p2_landing_page.html">PLC컨트롤러(Arx.PC100)</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">IT서비스<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="mydoc_introduction.html">스마트팩토리 시스템 구축</a></li>
+                        
+                        
+                        
+                        <li><a href="mydoc_introduction.html">환경설비모니터링 서비스(구독형)</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:aerix_es_dev@aerix.co.kr?subject=Aerix Iot Help feedback&body=I have some feedback about the 테스트 툴 - MQTT 데이터 해석 page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="테스트 툴 - MQTT 데이터 해석">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">Product1 1.0</li>
+  
+  
+  
+      
+  
+  <li>
+      <a title="Getting Started" href="#">Getting Started</a>
+      <ul>
+          
+          
+          
+          <li><a title="Product 1 home" href="p1_landing_page.html">Product 1 home</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Sample 1" href="p1_sample1.html">Sample 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Sample 2" href="p1_sample2.html">Sample 2</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Sample 3" href="p1_sample3.html">Sample 3</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Another heading" href="#">Another heading</a>
+      <ul>
+          
+          
+          
+          <li><a title="Sample 4" href="p1_sample4.html">Sample 4</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Sample 5" href="p1_sample5.html">Sample 5</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Sample 6" href="p1_sample6.html">Sample 6</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Sample 7" href="p1_sample7.html">Sample 7</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">테스트 툴 - MQTT 데이터 해석</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <br>
+<br>
+<p>
+스마트콤보(제품명 : ITMS-850) 디바이스에서 MQTT 브로커로 전송된 메시지를 아래의 텍스트 창에 입력하고, "Submit" 버튼을 클릭하면 메시지를 해석하여
+그 내용을 화면에 출력해주는 테스트 툴입니다.
+</p>
+
+<br>
+
+<b>[입력예시]</b><br><br>
+<code>
+{"time":"2022-09-08T10:41:19.000300Z","eui":1000,"payload":[1,0,0,0,0,0,0,0,17,162,17,12,0,220,0,0,75,240,0,158,155,197,0,0,16,180],"gateway_id":2}
+</code>
+
+<br><br>
+
+<p><textarea id = "data" cols="50" rows="10"></textarea></p>
+<p><button id = "submit_btn">Submit</button></p>
+
+<h2>메시지 해석 결과</h2>
+
+<br>
+<div id="result">
+</div>
+
+<script>
+document.getElementById("submit_btn").addEventListener("click",test);
+
+function test(){
+    const element = document.getElementById("result");
+    const value = document.getElementById("data").value;
+
+    const resultHtml = getResultHtml(value);
+
+    element.innerHTML = resultHtml;
+}
+
+function getResultHtml(value){
+    let json_obj = JSON.parse(value);
+    const time = json_obj.time;
+    const eui = json_obj.eui;
+    const payload = json_obj.payload;
+    const gateway_id = 2;
+
+    let resultHTML = "<ul>";
+    resultHtml = "<li>"+"데이터 송신시간 : "+time+"</li>";
+    resultHtml = resultHtml+"<li>"+"스마트콤보 고유ID(EUI) : "+eui+"</li>";
+    resultHtml = resultHtml+"<li>"+"사업장구분코드(Gateway ID) : "+gateway_id+"</li>";
+    resultHtml = resultHtml+"<li>"+"센서 값"+"</li>";
+    resultHtml = resultHtml+"<ul style='list-style-type : circle;'>";
+    
+    const cmd = payload[0];
+    if(cmd!=1){
+        resultHtml = "<B>유효하지 않은 메시지 형식입니다 : 명령어 바이트가 1이 아님"
+        console.log("Error");
+        return resultHtml;
+    }
+
+    resultHtml = resultHtml+getDIParsed(payload);
+    resultHtml = resultHtml+getAIParsed(payload);
+    resultHtml = resultHtml+getPressureParsed(payload);
+    resultHtml = resultHtml+getTemperature(payload);
+    resultHtml = resultHtml+getElec(payload);
+    resultHtml = resultHtml+"</ul>";
+    resultHtml = resultHtml+"</ul>";
+
+    return resultHtml;
+}
+
+function getDIParsed(payload){
+    const header = payload[1];
+
+    let di4 = "low";
+    if((0x01 & (header >> 3))==1){
+        di4 = "high";
+    }
+    let di3 = "low";
+    if((0x01 & (header >> 2))==1){
+        di3 = "high";
+    }
+    let di2 = "low";
+    if((0x01 & (header >> 1))==1){
+        di2 = "high";
+    }
+    let di1 = "low";
+    if((0x01 & header)==1){
+        di1 = "high";
+    }
+    const resultHtml = "<li>"+"DI1 : "+di1+" / "+"DI2 : "+di2+" / "+"DI3 : "+di3+" / "+"DI4 : "+di4+"</li>";
+    
+    return resultHtml;
+}
+
+function getAIParsed(payload){
+    const ai1 = ((payload[2] << 8) | (0x00FF & payload[3]));
+    const ai2 = ((payload[4] << 8) | (0x00FF & payload[5]));
+    
+    const resultHtml = "<li>"+"AI1 : "+ai1+" / "+"AI2 : "+ai2+"</li>";
+    
+    return resultHtml;
+}
+
+function getPressureParsed(payload){
+    const diffPres = ((payload[6] << 8) | (0x00FF & payload[7]));
+    const pressure = ((payload[8] << 8) | (0x00FF & payload[9]));
+
+    const resultHtml = "<li>"+"차압 : "+diffPres+" / "+"압력 : "+pressure+"</li>";
+    
+    return resultHtml;
+}
+
+function getTemperature(payload){
+    const value = ((payload[10] << 8) | (0x00FF & payload[11]));
+    const temperature = value * 0.01;
+
+    const resultHtml = "<li>"+"온도 : "+temperature+"</li>";
+    
+    return resultHtml;
+}
+
+function getElec(payload){
+    const voltage = ((payload[12] << 8) | (0x00FF & payload[13]));
+    const current = ((payload[14] << 24) | (0x00FF0000 & (payload[15] << 16)) | (0x0000FF00 & (payload[16] << 8)) | (0x000000FF & payload[17]));
+    const power = ((payload[18] << 24) | (0x00FF0000 & (payload[19] << 16)) | (0x0000FF00 & (payload[20] << 8)) | (0x000000FF & payload[21]));
+    const active_power = ((payload[22] << 24) | (0x00FF0000 & (payload[23] << 16)) | (0x0000FF00 & (payload[24] << 8)) | (0x000000FF & payload[25]));
+
+    let resultHtml = "<li>"+"전압 : "+voltage+"</li>";
+    resultHtml = resultHtml + "<li>"+"전류 : "+current+"</li>";
+    resultHtml = resultHtml + "<li>"+"전력 : "+power+"</li>";
+    resultHtml = resultHtml + "<li>"+"유효전력 : "+active_power+"</li>";
+    
+    return resultHtml;
+}
+
+</script>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+<noscript>Please enable JavaScript to load the comments.</noscript>
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2022 Copyright 2022 Aerix CO,. LTD.. All rights reserved. <br />
+ Site last generated: Sep 8, 2022 <br />
+<p><img src="images/aerix_logo.png" alt="(주)에어릭스"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-66296557-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+</html>
+
+
