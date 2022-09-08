@@ -1,0 +1,144 @@
+---
+title: 테스트 툴 - MQTT 데이터 해석
+keywords: itms850
+sidebar: product1_sidebar
+toc: false
+permalink: itms850_dataparsing.html
+folder: itms850
+---
+
+<br>
+<br>
+<p>
+스마트콤보(제품명 : ITMS-850) 디바이스에서 MQTT 브로커로 전송된 메시지를 아래의 텍스트 창에 입력하고, "Submit" 버튼을 클릭하면 메시지를 해석하여
+그 내용을 화면에 출력해주는 테스트 툴입니다.
+</p>
+
+<br>
+
+<b>[입력예시]</b><br><br>
+<code>
+{"time":"2022-09-08T10:41:19.000300Z","eui":1000,"payload":[1,0,0,0,0,0,0,0,17,162,17,12,0,220,0,0,75,240,0,158,155,197,0,0,16,180],"gateway_id":2}
+</code>
+
+<br><br>
+
+<p><textarea id = "data" cols="50" rows="10"></textarea></p>
+<p><button id = "submit_btn">Submit</button></p>
+
+<h2>메시지 해석 결과</h2>
+
+<br>
+<div id="result">
+</div>
+
+<script>
+document.getElementById("submit_btn").addEventListener("click",test);
+
+function test(){
+    const element = document.getElementById("result");
+    const value = document.getElementById("data").value;
+
+    const resultHtml = getResultHtml(value);
+
+    element.innerHTML = resultHtml;
+}
+
+function getResultHtml(value){
+    let json_obj = JSON.parse(value);
+    const time = json_obj.time;
+    const eui = json_obj.eui;
+    const payload = json_obj.payload;
+    const gateway_id = 2;
+
+    let resultHTML = "<ul>";
+    resultHtml = "<li>"+"데이터 송신시간 : "+time+"</li>";
+    resultHtml = resultHtml+"<li>"+"스마트콤보 고유ID(EUI) : "+eui+"</li>";
+    resultHtml = resultHtml+"<li>"+"사업장구분코드(Gateway ID) : "+gateway_id+"</li>";
+    resultHtml = resultHtml+"<li>"+"센서 값"+"</li>";
+    resultHtml = resultHtml+"<ul style='list-style-type : circle;'>";
+    
+    const cmd = payload[0];
+    if(cmd!=1){
+        resultHtml = "<B>유효하지 않은 메시지 형식입니다 : 명령어 바이트가 1이 아님"
+        console.log("Error");
+        return resultHtml;
+    }
+
+    resultHtml = resultHtml+getDIParsed(payload);
+    resultHtml = resultHtml+getAIParsed(payload);
+    resultHtml = resultHtml+getPressureParsed(payload);
+    resultHtml = resultHtml+getTemperature(payload);
+    resultHtml = resultHtml+getElec(payload);
+    resultHtml = resultHtml+"</ul>";
+    resultHtml = resultHtml+"</ul>";
+
+    return resultHtml;
+}
+
+function getDIParsed(payload){
+    const header = payload[1];
+
+    let di4 = "low";
+    if((0x01 & (header >> 3))==1){
+        di4 = "high";
+    }
+    let di3 = "low";
+    if((0x01 & (header >> 2))==1){
+        di3 = "high";
+    }
+    let di2 = "low";
+    if((0x01 & (header >> 1))==1){
+        di2 = "high";
+    }
+    let di1 = "low";
+    if((0x01 & header)==1){
+        di1 = "high";
+    }
+    const resultHtml = "<li>"+"DI1 : "+di1+" / "+"DI2 : "+di2+" / "+"DI3 : "+di3+" / "+"DI4 : "+di4+"</li>";
+    
+    return resultHtml;
+}
+
+function getAIParsed(payload){
+    const ai1 = ((payload[2] << 8) | (0x00FF & payload[3]));
+    const ai2 = ((payload[4] << 8) | (0x00FF & payload[5]));
+    
+    const resultHtml = "<li>"+"AI1 : "+ai1+" / "+"AI2 : "+ai2+"</li>";
+    
+    return resultHtml;
+}
+
+function getPressureParsed(payload){
+    const diffPres = ((payload[6] << 8) | (0x00FF & payload[7]));
+    const pressure = ((payload[8] << 8) | (0x00FF & payload[9]));
+
+    const resultHtml = "<li>"+"차압 : "+diffPres+" / "+"압력 : "+pressure+"</li>";
+    
+    return resultHtml;
+}
+
+function getTemperature(payload){
+    const value = ((payload[10] << 8) | (0x00FF & payload[11]));
+    const temperature = value * 0.01;
+
+    const resultHtml = "<li>"+"온도 : "+temperature+"</li>";
+    
+    return resultHtml;
+}
+
+function getElec(payload){
+    const voltage = ((payload[12] << 8) | (0x00FF & payload[13]));
+    const current = ((payload[14] << 24) | (0x00FF0000 & (payload[15] << 16)) | (0x0000FF00 & (payload[16] << 8)) | (0x000000FF & payload[17]));
+    const power = ((payload[18] << 24) | (0x00FF0000 & (payload[19] << 16)) | (0x0000FF00 & (payload[20] << 8)) | (0x000000FF & payload[21]));
+    const active_power = ((payload[22] << 24) | (0x00FF0000 & (payload[23] << 16)) | (0x0000FF00 & (payload[24] << 8)) | (0x000000FF & payload[25]));
+
+    let resultHtml = "<li>"+"전압 : "+voltage+"</li>";
+    resultHtml = resultHtml + "<li>"+"전류 : "+current+"</li>";
+    resultHtml = resultHtml + "<li>"+"전력 : "+power+"</li>";
+    resultHtml = resultHtml + "<li>"+"유효전력 : "+active_power+"</li>";
+    
+    return resultHtml;
+}
+
+</script>
