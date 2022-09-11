@@ -1,0 +1,50 @@
+entries:
+- title: Sidebar
+  product: ITMS-850
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: 개요
+    output: web
+    folderitems:
+    - title: Home
+      url: /itms850_landing_page.html
+      output: web
+    - title: 제품소개
+      url: /itms850-mqtt-data-parser.html
+      output: web
+
+    - title: Sample 1
+      url: /myupdate.html
+      output: web
+
+  - title: 테스트 툴
+    output: web
+    folderitems:
+    - title: ITMS-850 MQTT 데이터 분석
+      url: /itms850-mqtt-parser-tool.html
+      output: web
+
+  - title: 예제소스
+    output: web
+    folderitems:
+    - title: ITMS-850 시뮬레이터
+      url: /itms850-mqtt-simulator-source.html
+      output: web
+
+    - title: ITMS-850 MQTT 데이터 수신
+      url: /itms850-mqtt-parser-source.html
+      output: web

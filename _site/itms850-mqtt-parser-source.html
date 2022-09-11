@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" itms850">
-<title>ITMS-850 MQTT 데이터 분석툴 | 에어릭스 On-line 기술지원</title>
+<meta name="description" content="스마틈콤보(제품명 : ITMS-850) 디바이스가 MQTT 브로커로 전송한 데이터를 분석하여 센서 데이터 값을 추출하는 예제 소스코드입니다.">
+<meta name="keywords" content=" mqtt">
+<title>ITMS-850 데이터 MQTT 수신 예제 | 에어릭스 On-line 기술지원</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -165,7 +165,7 @@
                     <ul class="dropdown-menu">
                         
                         
-                        <li class="dropdownActive"><a href="itms850-mqtt-data-parser.html">스마트콤보(ITMS-850)</a></li>
+                        <li><a href="itms850_landing_page.html">스마트콤보(ITMS-850)</a></li>
                         
                         
                         
@@ -200,7 +200,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:aerix_es_dev@aerix.co.kr?subject=Aerix Iot Help feedback&body=I have some feedback about the ITMS-850 MQTT 데이터 분석툴 page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:aerix_es_dev@aerix.co.kr?subject=Aerix Iot Help feedback&body=I have some feedback about the ITMS-850 데이터 MQTT 수신 예제 page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -220,7 +220,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="ITMS-850 MQTT 데이터 분석툴">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="ITMS-850 데이터 MQTT 수신 예제">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -248,40 +248,33 @@
                 
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">Product1 1.0</li>
+  <li class="sidebarTitle">ITMS-850 </li>
   
   
   
       
   
   <li>
-      <a title="Getting Started" href="#">Getting Started</a>
+      <a title="개요" href="#">개요</a>
       <ul>
           
           
           
-          <li><a title="Product 1 home" href="p1_landing_page.html">Product 1 home</a></li>
+          <li><a title="Home" href="itms850_landing_page.html">Home</a></li>
           
           
           
           
           
           
-          <li><a title="Sample 1" href="p1_sample1.html">Sample 1</a></li>
+          <li><a title="제품소개" href="itms850-mqtt-data-parser.html">제품소개</a></li>
           
           
           
           
           
           
-          <li><a title="Sample 2" href="p1_sample2.html">Sample 2</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Sample 3" href="p1_sample3.html">Sample 3</a></li>
+          <li><a title="Sample 1" href="myupdate.html">Sample 1</a></li>
           
           
           
@@ -292,33 +285,35 @@
       
   
   <li>
-      <a title="Another heading" href="#">Another heading</a>
+      <a title="테스트 툴" href="#">테스트 툴</a>
       <ul>
           
           
           
-          <li><a title="Sample 4" href="p1_sample4.html">Sample 4</a></li>
+          <li><a title="ITMS-850 MQTT 데이터 분석" href="itms850-mqtt-parser-tool.html">ITMS-850 MQTT 데이터 분석</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="예제소스" href="#">예제소스</a>
+      <ul>
+          
+          
+          
+          <li><a title="ITMS-850 시뮬레이터" href="itms850-mqtt-simulator-source.html">ITMS-850 시뮬레이터</a></li>
           
           
           
           
           
           
-          <li><a title="Sample 5" href="p1_sample5.html">Sample 5</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Sample 6" href="p1_sample6.html">Sample 6</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Sample 7" href="p1_sample7.html">Sample 7</a></li>
+          <li class="active"><a title="ITMS-850 MQTT 데이터 수신" href="itms850-mqtt-parser-source.html">ITMS-850 MQTT 데이터 수신</a></li>
           
           
           
@@ -347,7 +342,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">ITMS-850 MQTT 데이터 분석툴</h1>
+   <h1 class="post-title-main">ITMS-850 데이터 MQTT 수신 예제</h1>
 </div>
 
 
@@ -355,152 +350,196 @@
 <div class="post-content">
 
    
+    <div class="summary">스마틈콤보(제품명 : ITMS-850) 디바이스가 MQTT 브로커로 전송한 데이터를 분석하여 센서 데이터 값을 추출하는 예제 소스코드입니다.</div>
+   
 
     
-
-
     
-
-   <br>
-<br>
-<p>
-스마트콤보(제품명 : ITMS-850) 디바이스에서 MQTT 브로커로 전송된 메시지를 아래의 텍스트 창에 입력하고, "Submit" 버튼을 클릭하면 
-메시지를 분석하여 그 내용을 화면에 출력해주는 테스트 툴입니다.
-</p>
-
-<br>
-
-<h2>메시지 입력</h2>
-
-<br>
-
-<b>[입력예시]</b><br><br>
-<code>
-{"time":"2022-09-08T10:41:19.000300Z","eui":1000,"payload":[1,0,0,0,0,0,0,0,17,162,17,12,0,220,0,0,75,240,0,158,155,197,0,0,16,180],"gateway_id":2}
-</code>
-
-<br><br>
-
-<p><textarea id = "data" cols="50" rows="10"></textarea></p>
-<p><button id = "submit_btn">Submit</button></p>
-
-<h2>메시지 분석 결과</h2>
-
-<br>
-<div id="result">
-None
-</div>
-
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
 <script>
-document.getElementById("submit_btn").addEventListener("click",test);
+$( document ).ready(function() {
+  // Handler for .ready() called.
 
-function test(){
-    const element = document.getElementById("result");
-    const value = document.getElementById("data").value;
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
 
-    const resultHtml = getResultHtml(value);
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
 
-    element.innerHTML = resultHtml;
-}
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
 
-function getResultHtml(value){
-    let json_obj = JSON.parse(value);
-    const time = json_obj.time;
-    const eui = json_obj.eui;
-    const payload = json_obj.payload;
-    const gateway_id = 2;
-
-    let resultHTML = "<ul>";
-    resultHtml = "<li>"+"데이터 송신시간 : "+time+"</li>";
-    resultHtml = resultHtml+"<li>"+"스마트콤보 고유ID(EUI) : "+eui+"</li>";
-    resultHtml = resultHtml+"<li>"+"사업장구분코드(Gateway ID) : "+gateway_id+"</li>";
-    resultHtml = resultHtml+"<li>"+"센서 값"+"</li>";
-    resultHtml = resultHtml+"<ul style='list-style-type : circle;'>";
-    
-    const cmd = payload[0];
-    if(cmd!=1){
-        resultHtml = "<B>유효하지 않은 메시지 형식입니다 : 명령어 바이트가 1이 아님"
-        console.log("Error");
-        return resultHtml;
-    }
-
-    resultHtml = resultHtml+getDIParsed(payload);
-    resultHtml = resultHtml+getAIParsed(payload);
-    resultHtml = resultHtml+getPressureParsed(payload);
-    resultHtml = resultHtml+getTemperature(payload);
-    resultHtml = resultHtml+getElec(payload);
-    resultHtml = resultHtml+"</ul>";
-    resultHtml = resultHtml+"</ul>";
-
-    return resultHtml;
-}
-
-function getDIParsed(payload){
-    const header = payload[1];
-
-    let di4 = "low";
-    if((0x01 & (header >> 3))==1){
-        di4 = "high";
-    }
-    let di3 = "low";
-    if((0x01 & (header >> 2))==1){
-        di3 = "high";
-    }
-    let di2 = "low";
-    if((0x01 & (header >> 1))==1){
-        di2 = "high";
-    }
-    let di1 = "low";
-    if((0x01 & header)==1){
-        di1 = "high";
-    }
-    const resultHtml = "<li>"+"DI1 : "+di1+" / "+"DI2 : "+di2+" / "+"DI3 : "+di3+" / "+"DI4 : "+di4+"</li>";
-    
-    return resultHtml;
-}
-
-function getAIParsed(payload){
-    const ai1 = ((payload[2] << 8) | (0x00FF & payload[3]));
-    const ai2 = ((payload[4] << 8) | (0x00FF & payload[5]));
-    
-    const resultHtml = "<li>"+"AI1 : "+ai1+" / "+"AI2 : "+ai2+"</li>";
-    
-    return resultHtml;
-}
-
-function getPressureParsed(payload){
-    const diffPres = ((payload[6] << 8) | (0x00FF & payload[7]));
-    const pressure = ((payload[8] << 8) | (0x00FF & payload[9]));
-
-    const resultHtml = "<li>"+"차압 : "+diffPres+" / "+"압력 : "+pressure+"</li>";
-    
-    return resultHtml;
-}
-
-function getTemperature(payload){
-    const value = ((payload[10] << 8) | (0x00FF & payload[11]));
-    const temperature = value * 0.01;
-
-    const resultHtml = "<li>"+"온도 : "+temperature+"</li>";
-    
-    return resultHtml;
-}
-
-function getElec(payload){
-    const voltage = ((payload[12] << 8) | (0x00FF & payload[13]));
-    const current = ((payload[14] << 24) | (0x00FF0000 & (payload[15] << 16)) | (0x0000FF00 & (payload[16] << 8)) | (0x000000FF & payload[17]));
-    const power = ((payload[18] << 24) | (0x00FF0000 & (payload[19] << 16)) | (0x0000FF00 & (payload[20] << 8)) | (0x000000FF & payload[21]));
-    const active_power = ((payload[22] << 24) | (0x00FF0000 & (payload[23] << 16)) | (0x0000FF00 & (payload[24] << 8)) | (0x000000FF & payload[25]));
-
-    let resultHtml = "<li>"+"전압 : "+voltage+"</li>";
-    resultHtml = resultHtml + "<li>"+"전류 : "+current+"</li>";
-    resultHtml = resultHtml + "<li>"+"전력 : "+power+"</li>";
-    resultHtml = resultHtml + "<li>"+"유효전력 : "+active_power+"</li>";
-    
-    return resultHtml;
-}
-
+});
 </script>
+
+<div id="toc"></div>
+
+
+
+    
+
+
+    
+
+   <h1 id="스마트콤보-제품명--itms-850-데이터-mqtt-수신-예제">스마트콤보 (제품명 : ITMS-850) 데이터 MQTT 수신 예제</h1>
+
+<p>에어릭스의 소규모 사업장 방지시설에 설치되는 맞춤형 IoT 통합센서 제품인 스마트콤보(제품명 : ITMS850) 디바이스는 환경공단 그린링크 서버로 데이터를 전송하는 기능이 기본적으로 제공되고  있지만, 일반적인 설비 모니터링 시스템 구축 용도로도 사용할 수 있도록 센서 데이터를 사용자가 지정한 MQTT 서버로 전송하는 기능도 제공하고 있습니다.</p>
+
+<p>이 Repository에는 MQTT 서버에서 센서 데이터를 전송받는 경우에는 수신한 데이터를 해석해서 센서 값을 추출하는 예제 프로그램의 소스코드와 자료가 포함되어 있습니다.</p>
+
+<h2 id="개요">개요</h2>
+
+<ul>
+  <li>작성자 : 이상훈 (에어릭스 환경시스템사업부 기술연구소 / sanghoon.lee@aerix.co.kr)</li>
+  <li>프로그램 언어 : Python</li>
+  <li>작성일 : 2022-09-06</li>
+</ul>
+
+<p><img src="./images/itms850.png" alt="스마트콤보(ITMS-850)" /></p>
+
+<h2 id="mqtt-데이터-구성">MQTT 데이터 구성</h2>
+
+<p>스마트콤보 디바이스에서 MQTT 서버로 전송하는 데이터는 Json형식이며, 다음과 같이 구성되어 있습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Data Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>“time”</td>
+      <td>String</td>
+      <td>데이터 송신시간</td>
+      <td>“2022-08-23T12:10:27.000300Z”</td>
+    </tr>
+    <tr>
+      <td>“eui”</td>
+      <td>Integer</td>
+      <td>콤보디바이스 ID</td>
+      <td>1001</td>
+    </tr>
+    <tr>
+      <td>“payload”</td>
+      <td>List</td>
+      <td>센서 데이터</td>
+      <td>[1,0,0,0,0,0,0,0,0,0,4,22,0,220,0,0,0,0,0,62,37,115,0,0,0,0]</td>
+    </tr>
+    <tr>
+      <td>“gateway_id”</td>
+      <td>Integer</td>
+      <td>게이트웨이 ID(사업장 구분코드로 활용)</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>샘플 데이터</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"time":"2022-08-23T12:10:27.000300Z","eui":1001,"payload":[1,0,0,0,0,0,0,0,0,0,4,22,0,220,0,0,0,0,0,62,37,115,0,0,0,0],"gateway_id":2}
+</code></pre></div></div>
+
+<p><strong>Payload 데이터 포맷</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">offset</th>
+      <th>Data</th>
+      <th>Unit</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td>Command Code</td>
+      <td>N/A</td>
+      <td>스마트콤보 센서인 경우 0x01로 고정값 사용</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>Header</td>
+      <td>N/A</td>
+      <td>* bit 7 : N/A <br /> * bit 6 : N/A <br /> * bit 5 : high인 경우 압력값 부호 -, low인 경우 압력값 부호 + <br /> * bit 4 : high인 경우 온도값 부호 -, low인 경우 온도값 부호 + <br /> * bit 3 : DI Port 4 Output <br /> * bit 2 : DI Port 3 Output <br /> * bit 1 : DI Port 2 Output <br /> * bit 0 : DI Port 1 Output</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2~3</td>
+      <td>AI Port 1 Output</td>
+      <td>mA</td>
+      <td>4~20mA AI 출력 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4~5</td>
+      <td>AI Port 2 Output</td>
+      <td>mA</td>
+      <td>4~20mA AI 출력 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6~7</td>
+      <td>Differential Pressure Sensor</td>
+      <td>mmH2O</td>
+      <td>차압 센서 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8~9</td>
+      <td>Pressure Sensor</td>
+      <td>mBar</td>
+      <td>압력 센서 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10~11</td>
+      <td>Temperature</td>
+      <td>℃</td>
+      <td>온도 값 (Big Endian) <br /> <strong>참고)</strong> 온도 값을 100으로 나눠서 사용해야 합니다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12~13</td>
+      <td>Voltage</td>
+      <td>V</td>
+      <td>전압 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14~17</td>
+      <td>Current</td>
+      <td>mA</td>
+      <td>전류 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18~21</td>
+      <td>Power</td>
+      <td>wH</td>
+      <td>소비 전력 값 (Big Endian)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22~25</td>
+      <td>Active Power</td>
+      <td>W</td>
+      <td>유효 전력 값 (Big Endian)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="예제-프로그램-실행방법">예제 프로그램 실행방법</h2>
+
+<p>repository의 src폴더에 예제 프로그램을 실행시키기 위해서 필요한 소스 코드가 위치해있습니다. src폴더로 이동하여 다음과 같이 프로그램을 실행할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python startApp.py
+</code></pre></div></div>
+
+<p><strong>참고1) 프로그램을 실행하기 전에 MQTT 브로커 접속정보가 저장되어 있는 config.json파일의 내용을 실행 환경에 맞게 수정해야 합니다.</strong></p>
+
+<p><strong>참고2) 프로그램을 실행하는 PC에 파이썬이 설치되어 있어야 합니다.</strong></p>
+
+<h2 id="소스코드-링크github">소스코드 링크(Github)</h2>
+
+<p><a href="https://github.com/aerixdev/itms850_dataparser" target="_blank">스마트콤보 (제품명 : ITMS-850) 데이터 MQTT 수신 예제 소스코드</a></p>
+
 
 
     <div class="tags">
@@ -511,24 +550,13 @@ function getElec(payload){
 
 <hr class="shaded"/>
 
-<div class="col-lg-8 col-md-10 mx-auto">
-    
-    <script src="https://utteranc.es/client.js"
-      repo="dev-yakuza/dev-yakuza.github.io"
-      issue-term="url"
-      label="comment"
-      theme="github-light"
-      crossorigin="anonymous"
-      async>
-    </script>
-    
-</div>
+
 
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2022 Copyright 2022 Aerix CO,. LTD.. All rights reserved. <br />
- Site last generated: Sep 8, 2022 <br />
+ Site last generated: Sep 12, 2022 <br />
 <p><img src="images/aerix_logo.png" alt="(주)에어릭스"/></p>
                 </div>
             </div>

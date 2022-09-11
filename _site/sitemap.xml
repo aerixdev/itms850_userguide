@@ -3,7 +3,7 @@
   
   
   <url>
-    <loc>http://localhost:4000/myupdate.html</loc>
+    <loc>http://localhost:4000/2022-09-07-launch.html</loc>
   </url>
   
   
@@ -38,7 +38,19 @@
   
   
   <url>
-    <loc>http://localhost:4000/itms850-mqtt-data-parser.html</loc>
+    <loc>http://localhost:4000/itms850-mqtt-parser-source.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/itms850-mqtt-parser-tool.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/itms850-mqtt-simulator-source.html</loc>
   </url>
   
   

@@ -11,11 +11,29 @@
 ,
 
 {
+"title": "ITMS-850 데이터 MQTT 수신 예제",
+"tags": "",
+"keywords": "mqtt",
+"url": "itms850-mqtt-parser-source.html",
+"summary": "스마틈콤보(제품명 : ITMS-850) 디바이스가 MQTT 브로커로 전송한 데이터를 분석하여 센서 데이터 값을 추출하는 예제 소스코드입니다."
+}
+,
+
+{
 "title": "ITMS-850 MQTT 데이터 분석툴",
 "tags": "",
 "keywords": "itms850",
-"url": "itms850-mqtt-data-parser.html",
+"url": "itms850-mqtt-parser-tool.html",
 "summary": ""
+}
+,
+
+{
+"title": "ITMS-850 MQTT 시뮬레이터",
+"tags": "",
+"keywords": "simulator",
+"url": "itms850-mqtt-simulator-source.html",
+"summary": "스마틈콤보(제품명 : ITMS-850) 디바이스와 동일한 형식으로 MQTT 브로커로 임의의 가상 센서 데이터 값을 전송하도록 구현한 예제 소스 코드입니다."
 }
 ,
 
@@ -746,8 +764,8 @@
 "title": "에어릭스 On-line 기술지원 사이트 운영 안내",
 "tags": "news디바이스기술지원",
 "keywords": "",
-"url": "myupdate.html",
-"summary": "에어릭스의 IoT 디바이스 및 스마트팩토리 서비스를 이용하는 고객에게 보다 체계적이고 효율적인 기술지원 서비스를 재공하기 위해서 On-line 기술지원 사이트를 운영합니다."
+"url": "2022-09-07-launch.html",
+"summary": ""
 }
 ,
 

@@ -1,0 +1,13 @@
+entries:
+- title: Sidebar
+  levels: one
+  folders:
+    - title: News
+      output: web
+      folderitems:
+      - title: 공지사항
+        url: /news.html
+        output: web
+      - title: 제품&서비스
+        url: /new_product.html
+        output: web

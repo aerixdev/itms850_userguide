@@ -5,20 +5,20 @@
         <description>Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features.</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 08 Sep 2022 20:28:48 +0900</pubDate>
-        <lastBuildDate>Thu, 08 Sep 2022 20:28:48 +0900</lastBuildDate>
+        <pubDate>Mon, 12 Sep 2022 07:45:07 +0900</pubDate>
+        <lastBuildDate>Mon, 12 Sep 2022 07:45:07 +0900</lastBuildDate>
         <generator>Jekyll v3.9.2</generator>
         
         <item>
             <title>에어릭스 On-line 기술지원 사이트 운영 안내</title>
-            <description>&lt;p&gt;에어릭스 IoT 디바이스 온라인 기술지원 사이트를 개설합니다.&lt;/p&gt;
+            <description>&lt;p&gt;에어릭스의 제품과 서비스를 이용하는 고객에게 보다 체계적이고 효과적인 기술지원 서비스를 제공할 수 있도록 On-line 기술지원 사이트를 구축했습니다.&lt;/p&gt;
 
-&lt;p&gt;##&lt;/p&gt;
+&lt;p&gt;앞으로 많은 이용 부탁드립니다.&lt;/p&gt;
 
 </description>
             <pubDate>Wed, 07 Sep 2022 00:00:00 +0900</pubDate>
-            <link>http://localhost:4000/myupdate.html</link>
-            <guid isPermaLink="true">http://localhost:4000/myupdate.html</guid>
+            <link>http://localhost:4000/2022-09-07-launch.html</link>
+            <guid isPermaLink="true">http://localhost:4000/2022-09-07-launch.html</guid>
             
             <category>news</category>
             
