@@ -1,9 +1,7 @@
 entries:
 - title: Sidebar
   product: ITMS-850
-  version: 
   folders:
-
   - title:
     output: pdf
     type: frontmatter
@@ -16,35 +14,42 @@ entries:
       url: /tocpage.html
       output: pdf
       type: frontmatter
-
   - title: 개요
-    output: web
+    output: web,pdf
     folderitems:
-    - title: Home
-      url: /itms850_landing_page.html
-      output: web
     - title: 제품소개
-      url: /itms850-mqtt-data-parser.html
-      output: web
-
-    - title: Sample 1
-      url: /myupdate.html
-      output: web
-
+      url: /itms850-landing-page.html
+      output: web,pdf
+    - title: 제품사양
+      url: /itms850-specs-page.html
+      output: web,pdf
+    - title: 인증 및 외부기관 평가결과
+      url: /itms850-approval-page.html
+      output: web,pdf
+  - title: 사용가이드
+    output: web,pdf
+    folderitems:
+    - title: 터치스크린
+      url: /itms850-lcd-page.html
+      output: web,pdf
+    - title: Shell 접속
+      url: /itms850-shell-page.html
+      output: web,pdf
+    - title: I/O포트 결선방법
+      url : /itms850-io-page.html
+      output: web,pdf
   - title: 테스트 툴
     output: web
     folderitems:
     - title: ITMS-850 MQTT 데이터 분석
       url: /itms850-mqtt-parser-tool.html
       output: web
-
   - title: 예제소스
     output: web
     folderitems:
     - title: ITMS-850 시뮬레이터
       url: /itms850-mqtt-simulator-source.html
       output: web
-
     - title: ITMS-850 MQTT 데이터 수신
       url: /itms850-mqtt-parser-source.html
       output: web

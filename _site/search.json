@@ -2,11 +2,65 @@
 [
 
 {
-"title": "Getting started with the Documentation Theme for Jekyll",
-"tags": "getting_started",
-"keywords": "sample homepage",
+"title": "소규모 대기배출시설 관리시스템 - 그린링크(Greenlink)",
+"tags": "",
+"keywords": "simulator",
+"url": "greenlink.html",
+"summary": "환경부는 환경공단과 함께 IoT(Internet of Things,사물인터넷) 기술을 활용하여 TMS가 부착되지 않은 소규모 대기배출시설의 대기오염물질 배출 현황 및 방지시설의 가동여부를 실시간 모니터링할 수 있도록 그린링크(Green Link) 시스템을 구축하여 운영하고 있습니다."
+}
+,
+
+{
+"title": "에어릭스 On-line 기술지원 사이트",
+"tags": "",
+"keywords": "",
 "url": "index.html",
-"summary": "These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about working with other aspects of this theme and Jekyll."
+"summary": "에어릭스의 IoT제품을 이용하는 고객과 제휴 파트너에게 보다 체계적이고 효과적인 기술지원 서비스를 제공하기 위한 목적으로 운영중인 On-line 기술지원 서비스입니다."
+}
+,
+
+{
+"title": "인증 및 외부기관 평가",
+"tags": "",
+"keywords": "",
+"url": "itms850-approval-page.html",
+"summary": ""
+}
+,
+
+{
+"title": "I/O포트 결선방법",
+"tags": "",
+"keywords": "",
+"url": "itms850-io-page.html",
+"summary": ""
+}
+,
+
+{
+"title": "제품소개",
+"tags": "",
+"keywords": "",
+"url": "itms850-landing-page.html",
+"summary": ""
+}
+,
+
+{
+"title": "스마트콤보(ITMS-850)",
+"tags": "",
+"keywords": "itms850",
+"url": "itms850-landing-page_old.html",
+"summary": ""
+}
+,
+
+{
+"title": "터치스크린",
+"tags": "",
+"keywords": "",
+"url": "itms850-lcd-page.html",
+"summary": ""
 }
 ,
 
@@ -38,10 +92,19 @@
 ,
 
 {
-"title": "스마트콤보(ITMS-850)",
+"title": "Shell 접속",
 "tags": "",
-"keywords": "itms850",
-"url": "itms850_landing_page.html",
+"keywords": "",
+"url": "itms850-shell-page.html",
+"summary": ""
+}
+,
+
+{
+"title": "제품사양",
+"tags": "",
+"keywords": "",
+"url": "itms850-specs-page.html",
 "summary": ""
 }
 ,
@@ -765,36 +828,6 @@
 "tags": "news디바이스기술지원",
 "keywords": "",
 "url": "2022-09-07-launch.html",
-"summary": ""
-}
-,
-
-
-{
-"title": "Sample post",
-"tags": "newsgetting_started",
-"keywords": "",
-"url": "samplepost.html",
-"summary": "This is some summary frontmatter for my sample post."
-}
-,
-
-
-{
-"title": "Welcome to Jekyll!",
-"tags": "news",
-"keywords": "",
-"url": "myupdate.html",
-"summary": ""
-}
-,
-
-
-{
-"title": "Test post from last year",
-"tags": "news",
-"keywords": "",
-"url": "test-post-from-last-year.html",
 "summary": ""
 }
 

@@ -57,8 +57,13 @@ function test(){
     const element = document.getElementById("result");
     const value = document.getElementById("data").value;
 
-    const resultHtml = getResultHtml(value);
-
+    let resultHtml = ""
+    try{
+        resultHtml = getResultHtml(value);
+    } catch(err){
+        resultHtml = err;
+    }
+    
     element.innerHTML = resultHtml;
 }
 

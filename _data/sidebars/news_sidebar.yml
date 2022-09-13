@@ -8,6 +8,6 @@ entries:
       - title: 공지사항
         url: /news.html
         output: web
-      - title: 제품&서비스
+      - title: 신제품 소개
         url: /new_product.html
         output: web

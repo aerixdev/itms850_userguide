@@ -27,7 +27,7 @@ topnav_dropdowns:
     - title: IoT디바이스
       folderitems:
         - title: 스마트콤보(ITMS-850)
-          url: /itms850_landing_page.html
+          url: /itms850-landing-page.html
         - title: BLE스캐너(Arx.BS100)
           url: /p1_landing_page.html
         - title: PLC컨트롤러(Arx.PC100)

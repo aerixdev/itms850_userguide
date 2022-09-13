@@ -1,0 +1,32 @@
+entries:
+- title: sidebar
+  product: On-line 기술지원
+  version: 
+  folders:
+    - title: Overview
+      output: web, pdf
+      folderitems:
+    - title: Home
+      url: /index.html
+      output: web, pdf
+      type: homepage
+    - title: 제품군
+      url: /index5.html
+      output: web, pdf
+      type: homepage
+    - title: 기술지원 체계
+      url: /index2.html
+      output: web, pdf
+      type: homepage
+    - title: A/S
+      output: web
+      folderitems:
+      - title: A/S 규정
+        url: /index3.html
+        output: web, pdf
+        type: homepage
+      - title: A/S 절차안내
+        url: /index3.html
+        output: web, pdf
+        type: homepage
+        
