@@ -16,10 +16,27 @@ folder: itms850
 <h2>1. 메시지 입력</h2>
 
 <br>
-
+<p>
+<!--    <select Id='sensor_type' size='4'>-->
+<!--    <option value='' selected>&#45;&#45; sensor_type &#45;&#45;</option>-->
+<!--    <option value='combo'>combo(ITMS-850)</option>-->
+<!--    <option value='pressure_low'>미압센서(Arx.T115/T125)</option>-->
+<!--    <option value='pressure_middle'>중압센서(T145)</option>-->
+<!--    <option value='temperature'>온습도센서(T205)</option>-->
+<!--    <option value='vibration'>진동센서(T435)</option>-->
+    <select id='sensor_type'>
+        <option value='' selected>-- sensor_type --</option>
+<!--        <option value='pressure_low'>미압센서(Arx.T115/125)</option>-->
+<!--        <option value='pressure_middle'>중압센서(Arx.T115/125)</option>-->
+        <option value='vibration'>진동센서(Arx.T435)</option>
+        <option value='combo'>Combo(itms-850)</option>
+    </select>
+</select></p>
 <b>[입력예시]</b><br><br>
-<code>
-{"time":"2022-09-08T10:41:19.000300Z","eui":1000,"payload":[1,0,0,0,0,0,0,0,17,162,17,12,0,220,0,0,75,240,0,158,155,197,0,0,16,180],"gateway_id":2}
+<code id ="code">
+<!--{"time":"2022-09-08T10:41:19.000300Z","eui":1000,"payload":[1,0,0,0,0,0,0,0,17,162,17,12,0,220,0,0,75,240,0,158,155,197,0,0,16,180],"gateway_id":2}-->
+    <!--{"msgId": 32769, "time": "2022-09-14T22:12:43.014793Z", "mac": "F0:B5:D1:9E:69:B6", "payload": [162, 0.21, 0.9, 0.6, 0.0, 0.0, 0.0, 92], "rssi": -61}-->
+
 </code>
 
 <br><br>
@@ -49,14 +66,16 @@ None
 
 <script>
 document.getElementById("submit_btn").addEventListener("click",test);
+document.getElementById("sensor_type").addEventListener("change",test2);
 
 function test(){
     const element = document.getElementById("result");
     const value = document.getElementById("data").value;
+    let type = document.getElementById("sensor_type").value;
 
     let resultHtml = ""
     try{
-        resultHtml = getResultHtml(value);
+        resultHtml = getResultHtml(value,type);
     } catch(err){
         resultHtml = err;
     }
@@ -64,34 +83,82 @@ function test(){
     element.innerHTML = resultHtml;
 }
 
-function getResultHtml(value){
+function test2(){
+    const element = document.getElementById("code");
+    const type = document.getElementById("sensor_type").value;
+    let resultHtml ="";
+
+    if(type=="combo")
+    {
+        resultHtml = "{\"time\":\"2022-09-08T10:41:19.000300Z\",\"eui\":1000,\"payload\":[1,0,0,0,0,0,0,0,17,162,17,12,0,220,0,0,75,240,0,158,155,197,0,0,16,180],\"gateway_id\":2}";
+    }
+    else if(type=="vibration")
+    {
+        resultHtml = "{\"msgId\": 32769, \"time\": \"2022-09-14T22:12:43.014793Z\", \"mac\": \"F0:B5:D1:9E:69:B6\", \"payload\": [162, 0.21, 0.9, 0.6, 0.0, 0.0, 0.0, 92], \"rssi\": -61}";
+    }
+    element.innerHTML = resultHtml;
+}
+
+function getResultHtml(value,type){
+
     let json_obj = JSON.parse(value);
     const time = json_obj.time;
-    const eui = json_obj.eui;
     const payload = json_obj.payload;
-    const gateway_id = 2;
+    const cmd = payload[0];
 
     let resultHTML = "<ul>";
-    resultHtml = "<li>"+"데이터 송신시간 : "+time+"</li>";
-    resultHtml = resultHtml+"<li>"+"스마트콤보 고유ID(EUI) : "+eui+"</li>";
-    resultHtml = resultHtml+"<li>"+"사업장구분코드(Gateway ID) : "+gateway_id+"</li>";
-    resultHtml = resultHtml+"<li>"+"센서 값"+"</li>";
-    resultHtml = resultHtml+"<ul style='list-style-type : circle;'>";
-    
-    const cmd = payload[0];
-    if(cmd!=1){
-        resultHtml = "<B>유효하지 않은 메시지 형식입니다 : 명령어 바이트가 1이 아님"
-        console.log("Error");
-        return resultHtml;
-    }
+    switch (type)
+    {
+        case  "combo":
 
-    resultHtml = resultHtml+getDIParsed(payload);
-    resultHtml = resultHtml+getAIParsed(payload);
-    resultHtml = resultHtml+getPressureParsed(payload);
-    resultHtml = resultHtml+getTemperature(payload);
-    resultHtml = resultHtml+getElec(payload);
-    resultHtml = resultHtml+"</ul>";
-    resultHtml = resultHtml+"</ul>";
+            const eui = json_obj.eui;
+            const gateway_id = 2;
+            resultHtml = "<li>"+"데이터 송신시간 : "+time+"</li>";
+            resultHtml = resultHtml+"<li>"+"스마트콤보 고유ID(EUI) : "+eui+"</li>";
+            resultHtml = resultHtml+"<li>"+"사업장구분코드(Gateway ID) : "+gateway_id+"</li>";
+            resultHtml = resultHtml+"<li>"+"센서 값"+"</li>";
+            resultHtml = resultHtml+"<ul style='list-style-type : circle;'>";
+
+            if(cmd!=1){
+                resultHtml = "<B>유효하지 않은 메시지 형식입니다 : 명령어 바이트가 1이 아님"
+                console.log("Error");
+                return resultHtml;
+            }
+
+            resultHtml = resultHtml+getDIParsed(payload);
+            resultHtml = resultHtml+getAIParsed(payload);
+            resultHtml = resultHtml+getPressureParsed(payload);
+            resultHtml = resultHtml+getTemperature(payload);
+            resultHtml = resultHtml+getElec(payload);
+            resultHtml = resultHtml+"</ul>";
+            resultHtml = resultHtml+"</ul>";
+        break;
+
+    case "vibration" :
+        const mac = json_obj.mac;
+        const rssi = json_obj.rssi;
+
+        resultHtml = "<li>"+"데이터 송신시간 : "+time+"</li>";
+        // resultHtml = "<li>"+"센서 타입 : "+type+"</li>";
+        resultHtml = resultHtml+"<li>"+"센서 고유ID(MAC) : "+mac+"</li>";
+        resultHtml = resultHtml+"<li>"+"RSSI : "+rssi+"</li>";
+        resultHtml = resultHtml+"<li>"+"센서 값"+"</li>";
+        resultHtml = resultHtml+"<ul style='list-style-type : circle;'>";
+
+        if(cmd!=162){
+            resultHtml = "<B>유효하지 않은 메시지 형식입니다 : 명령어 바이트가 1이 아님"
+            console.log("Error");
+            return resultHtml;
+        }
+
+        resultHtml = resultHtml+ getAccXYZ(payload);
+        resultHtml = resultHtml+"</ul>";
+        resultHtml = resultHtml+"</ul>";
+        break;
+
+        default :
+        break;
+    }
 
     return resultHtml;
 }
@@ -158,6 +225,27 @@ function getElec(payload){
     resultHtml = resultHtml + "<li>"+"전력 : "+power+"</li>";
     resultHtml = resultHtml + "<li>"+"유효전력 : "+active_power+"</li>";
     
+    return resultHtml;
+}
+
+function getAccXYZ(payload){
+    const accX = payload[1];
+    const accY = payload[2];
+    const accZ = payload[3];
+    const velX = payload[4];
+    const velY = payload[5];
+    const velZ = payload[6];
+    const bat =payload[7];
+
+
+    let resultHtml = "<li>"+"accX : "+accX+"</li>";
+    resultHtml = resultHtml + "<li>"+"AccY : "+accY+"</li>";
+    resultHtml = resultHtml + "<li>"+"AccZ : "+accZ+"</li>";
+    resultHtml = resultHtml + "<li>"+"velocityX : "+velX+"</li>";
+    resultHtml = resultHtml + "<li>"+"velocityY : "+velY+"</li>";
+    resultHtml = resultHtml + "<li>"+"velocityZ : "+velZ+"</li>";
+    resultHtml = resultHtml + "<li>"+"Battery : "+bat+"</li>";
+
     return resultHtml;
 }
 
